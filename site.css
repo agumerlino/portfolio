@@ -55,7 +55,7 @@ body{
     z-index: 2; /* Asegúrate de que esté encima de otros elementos */
     opacity: 0;
     transition: opacity 1.2s ease-in-out;
-    box-shadow: 0 4px 50px rgba(255, 255, 255, 0.432), 0 6px 20px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.212), 0 6px 20px rgba(0, 0, 0, 0.1); 
 }
 #main-container.show {
     opacity: 1;
