@@ -92,12 +92,26 @@ body{
         
         font-size: 1.8vw;
     }
+    #text-container {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgba(88, 73, 109, 0.61);
+        font-family:  'font';
+        white-space: pre;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.151);
+        z-index: 1;
+        transition: color 2s ease;
+        line-height: 1.1;
+        font-size: 1.5vw; /* Tamaño de fuente adaptativo */
+    }
     #main-container{
         margin-right: 3vmax;
         margin-left: 3vmax;
-        margin-top: 25vmax;
+        margin-top: 18vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 5vmax;
+        border-radius: 4vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
@@ -112,9 +126,9 @@ body{
     #main-container{
         margin-right: 2.5vmax;
         margin-left: 2.5vmax;
-        margin-top: 25vmax;
+        margin-top: 16vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 5vmax;
+        border-radius: 3vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
@@ -130,9 +144,9 @@ body{
     #main-container{
         margin-right: 1.8vmax;
         margin-left: 1.8vmax;
-        margin-top: 22vmax;
+        margin-top: 14vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 5vmax;
+        border-radius: 2vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
@@ -176,9 +190,9 @@ body{
     #main-container{
         margin-right: 1.8vmax;
         margin-left: 1.8vmax;
-        margin-top: 15vmax;
+        margin-top: 10vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 5vmax;
+        border-radius: 1.5vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
@@ -208,9 +222,9 @@ body{
     #main-container{
         margin-right: 1.8vmax;
         margin-left: 1.8vmax;
-        margin-top: 12vmax;
+        margin-top: 8vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 5vmax;
+        border-radius: 1vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
@@ -225,9 +239,9 @@ body{
     #main-container{
         margin-right: 1.8vmax;
         margin-left: 1.8vmax;
-        margin-top: 10vmax;
+        margin-top: 6vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 5vmax;
+        border-radius: 1vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
