@@ -11,7 +11,7 @@ body{
     height: 100%;
     overflow: auto; /* Permitir el scroll */
     background-color: black;
-    color: rgb(245, 174, 174);
+    color: #f5aeae;
     font-family:  'font';
     white-space: pre;
     position: relative;
@@ -55,14 +55,18 @@ body{
     z-index: 2; /* Asegúrate de que esté encima de otros elementos */
     opacity: 0;
     transition: opacity 1.2s ease-in-out;
+    box-shadow: 0 4px 50px rgba(255, 255, 255, 0.432), 0 6px 20px rgba(0, 0, 0, 0.1); 
 }
 #main-container.show {
     opacity: 1;
 }
 #nav-bar {
-    margin-bottom: 5vmax;
+    display: flex;
+    justify-content: space-around;
     margin-left: 2vmax;
     margin-right: 2vmax;
+    z-index: 10;
+    top: 0;
 }
 #nav-bar ul {
     list-style-type: none;
@@ -76,21 +80,206 @@ body{
     margin: 1vmin 2vmin;
 }
 #nav-bar a {
+    position: relative; /* Necesario para que el pseudo-elemento ::before se posicione correctamente */
+    display: inline-block;
     text-decoration: none;
     color: white;
-    background-color: rgba(33, 33, 33, 0); /* Color de fondo de los botones */
+    background-color: rgba(38, 0, 255, 0); /* Fondo transparente inicialmente */
     padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    border-radius: 10px;
+    transition: background-color 0.3s; /* Transiciones suaves de fondo y color */
     font-size: 1.2vw;
+    overflow: hidden; /* Para que el texto animado no salga del botón */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    
 }
 #nav-bar a:hover {
-    background-color: rgb(77, 77, 77); /* Color de fondo al pasar el cursor */
+    background-color: rgba(38, 0, 255, 0.274); /* Color de fondo al pasar el cursor */
+    color: transparent; /* Hacemos transparente el texto original al hacer hover */
+    
 }
+
+#nav-bar a::before {
+    content: attr(data-text); /* Clona el texto del enlace */
+    position: absolute;
+    top: 25%;
+    left: 50%; /* Inicialmente fuera del botón */
+    white-space: nowrap; /* Asegura que el texto esté en una línea */
+    color: white; /* Mantiene el color del texto animado */
+    transform: translateX(100%);
+}
+
+#nav-bar a:hover::before {
+    left: 10%; /* Mueve el texto desde la izquierda a la derecha al hacer hover */
+    animation: marquee 70s linear infinite; /* Animación al hacer hover en el botón */
+}
+.projects-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3rem 0 7rem;
+    padding: 0 5rem;
+}
+
+.projects-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3rem 0 7rem;
+    padding: 0 5rem;
+    overflow: hidden;
+}
+
+/* Estilos iniciales del div .single */
+.single {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 6rem 0;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
+    position: relative; /* Necesario para aplicar transformaciones */
+    transform: translateX(100%); /* Mueve el elemento fuera de la pantalla a la derecha */
+    opacity: 0; /* Inicialmente oculto */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Animación suave */
+}
+
+/* Clase que aplica la animación para hacer visible el elemento */
+.single.visible {
+    transform: translateX(0); /* Mueve el elemento a su posición original */
+    opacity: 1; /* Hace visible el elemento */
+}
+
+.single-img {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
+}
+
+.single-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    color: #fff;
+    padding: 1rem;
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
+    flex-shrink: 1; /* Permite que el contenido se reduzca para ajustarse al contenedor */
+}
+ .single-detail h4 {
+    border: 3px solid #054066;
+    box-shadow: 6px 6px 0 0 #054066;
+    color: #054066;
+    font-family: 'font';
+    font-weight: 700;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    padding: .7rem 1.1rem;
+    text-transform: uppercase;
+}
+.parrafo {
+    flex-wrap: wrap;
+    font-size: 1vmax;
+    margin: 0 0 3.5rem;
+    text-align: center;
+    word-break: break-word; /* Fuerza el ajuste de palabras largas */
+    overflow-wrap: break-word; /* Maneja el ajuste de texto */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
+}
+.button-wrap button {
+    background: #f5aeae;
+    background-color: #f5aeae;
+    background-image: linear-gradient(315deg, #f5aeae, #f8d0d0);
+    border: none;
+    border-radius: 7px;
+    box-shadow: 9px 7px 32px -11px rgba(20, 233, 86, .74);
+    font-family: 'font';
+    font-size: 1.1rem;
+    font-weight: 900;
+    outline: none;
+    padding: .5rem .9rem;
+    position: relative;
+    text-transform: lowercase;
+    transition: all .3s ease-in-out 0s;
+    &::before {
+        content: '';
+        border-radius: 7px;
+        min-width: calc(100px + 12px);
+        min-height: calc(43px + 12px);
+        border: 3px solid #f5aeae;
+        box-shadow: 0 0 60px #e95c5c;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all .3s ease-in-out 0s;
+    }
+    &:hover, &:focus {
+        transform: translateY(-6px);
+    }
+    &:hover::before, &:focus::before {
+        opacity: 1;
+    }
+    &::after {
+        content: '';
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        border: 6px solid #f5aeae;
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: ring 1.5s infinite;
+    }
+    &:hover::after, &:focus::after {
+        animation: none;
+        display: none;
+    }
+}
+.single-img img {
+    width: 500px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: rgba(155,156,159, 0.42) 0px 60px 123px -25px,
+    rgba(155,156,159, 0.08) 0px 35px 75px -35px;
+    transform:
+      perspective(800px)
+      rotateY(25deg) scale(0.8)
+      rotateX(10deg);
+      filter: blur(0px);
+      opacity: 1;
+      transition: 0.6s ease all;
+      &:hover {
+        box-shadow: 0px 19px 67px -38px rgba(155,156,159,0.8);
+        transform:
+          perspective(800px)
+          rotateY(-15deg)
+          translateY(-50px)
+          rotateX(10deg)
+          scale(1);
+        filter: blur(.2px);
+        opacity: 1;
+      }}
+@keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 @media (max-width: 1200px) {
     #nav-bar a {
         
-        font-size: 1.8vw;
+        font-size: 2vw;
     }
     #text-container {
         position: absolute;
@@ -128,7 +317,7 @@ body{
         margin-left: 2.5vmax;
         margin-top: 16vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 3vmax;
+        border-radius: 3.3vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
@@ -146,7 +335,7 @@ body{
         margin-left: 1.8vmax;
         margin-top: 14vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 2vmax;
+        border-radius: 3vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
@@ -158,7 +347,7 @@ body{
         top: 10%;
     }
     #nav-bar {
-        margin-bottom: 3vmax;
+        margin-bottom: 1vmax;
         margin-left: 1vmax;
         margin-right: 1vmax;
     }
@@ -174,7 +363,7 @@ body{
         padding: 5px 10px;
         border-radius: 5px;
         transition: background-color 0.3s;
-        font-size: 2vw;
+        font-size: 2.3vw;
     }
 
     #nav-bar li {
@@ -192,16 +381,25 @@ body{
         margin-left: 1.8vmax;
         margin-top: 10vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 1.5vmax;
+        border-radius: 2.5vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
         transition: opacity 1.2s ease-in-out;
     }
     #nav-bar {
-        margin-bottom: 2vmax;
+        margin-bottom: 1vmax;
         margin-left: 1vmax;
         margin-right: 1vmax;
+    }
+    #nav-bar a {
+        text-decoration: none;
+        color: white;
+        background-color: rgba(33, 33, 33, 0); /* Color de fondo de los botones */
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        font-size: 2.3vw;
     }
 }
 @media (max-width: 440px) {
@@ -212,10 +410,10 @@ body{
         padding: 5px 6px;
         border-radius: 5px;
         transition: background-color 0.3s;
-        font-size: 2vw;
+        font-size: 2.3vw;
     }
     #nav-bar {
-        margin-bottom: 1.5vmax;
+        margin-bottom: 1vmax;
         margin-left: 1vmax;
         margin-right: 1vmax;
     }
@@ -224,7 +422,7 @@ body{
         margin-left: 1.8vmax;
         margin-top: 8vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 1vmax;
+        border-radius: 2vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;
@@ -241,7 +439,7 @@ body{
         margin-left: 1.8vmax;
         margin-top: 6vmax;
         background-color: rgb(8, 3, 20);
-        border-radius: 1vmax;
+        border-radius: 2vmax;
         position: relative;
         z-index: 2; /* Asegúrate de que esté encima de otros elementos */
         opacity: 0;

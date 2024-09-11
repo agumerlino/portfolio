@@ -11,24 +11,68 @@
     <div class="background" id="background"></div>
     <div id="text-container"></div>
     <div id="main-container">
-        <div id="nav-bar">
+        <nav id="nav-bar">
             <ul>
-                <li><a href="#project1">Proyectos</a></li>
-                <li><a href="#project2">Sobre mi</a></li>
-                <li><a href="#project3">Contacto</a></li>
+                <li><a href="#section-to-show" id="show-section"
+                    data-text="Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos 
+                               Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos 
+                               Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos
+                               Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos 
+                               Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos 
+                               Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos
+                               Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos 
+                               Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos 
+                               Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos Proyectos
+                               " class="btn1 rounded-full">
+                               Proyectos
+                </a></li>
+                <li><a href="#project2" 
+                    data-text=" Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                     Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                      Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                       Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                        Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                         Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                          Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                           Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                            Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                             Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi
+                              Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi 
+                              Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi Sobre mi" 
+                                class="btn2">
+                                Sobre mi
+                </a></li>
+                <li><a href="#project3"
+                     data-text="Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                      Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                       Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                        Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                         Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                          Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                           Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                            Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                             Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                              Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto
+                               Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto Contacto" 
+                                class="btn3">
+                                Contacto
+                </a></li>
             </ul>
+        </nav>
+        <div class="projects-container d-flex flex-lg-row justify-content-center" >
+            <div  id="section-to-show" class="single d-flex flex-lg-row ">
+                <div class="single-img d-flex">
+                    <img src="./imagen.jpg" alt="">
+                </div>
+                <div class="single-detail d-flex">
+                    <h4>Cielo Extremo ARG</h4>
+                    <p class="parrafo d-flex">Sitio web <br> desarrollado con ASP.NET8 y SQL Server</p>
+                        <div class="button-wrap">
+                            <button class="button" href="https://cieloextremo.somee.com/">Visit →</button>
+                        </div>
+                    </div>
+                </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
     </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -168,6 +212,19 @@
         window.addEventListener('resize', fillBackground);
         updateBackground();
         startAnimation();
+        
+        // Añadir funcionalidad para el enlace
+document.getElementById('show-section').addEventListener('click', function(event) {
+    event.preventDefault(); // Previene el comportamiento predeterminado del enlace
+
+    const section = document.getElementById('section-to-show');
+
+    // Hacer scroll hasta la sección
+    section.scrollIntoView({ behavior: 'smooth' });
+
+    // Añadir la clase para activar la animación de deslizamiento
+    section.classList.add('visible');
+});
     </script>
 </body>
 </html>
