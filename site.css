@@ -48,13 +48,13 @@ body{
 #main-container{
     margin-right: 7vmax;
     margin-left: 7vmax;
-    margin-top: 20vmax;
+    margin-top: 25vmax;
     background-color: rgb(2, 0, 8);
     border-radius: 5vmax;
     position: relative;
     z-index: 2; /* Asegúrate de que esté encima de otros elementos */
     opacity: 0;
-    transition: opacity 2s ease-in-out;
+    transition: opacity 1.2s ease-in-out;
 }
 #main-container.show {
     opacity: 1;
@@ -92,14 +92,47 @@ body{
         
         font-size: 1.8vw;
     }
+    #main-container{
+        margin-right: 3vmax;
+        margin-left: 3vmax;
+        margin-top: 25vmax;
+        background-color: rgb(2, 0, 8);
+        border-radius: 5vmax;
+        position: relative;
+        z-index: 2; /* Asegúrate de que esté encima de otros elementos */
+        opacity: 0;
+        transition: opacity 1.2s ease-in-out;
+    }
 }
 @media (max-width: 1000px) {
     #nav-bar a {
         
         font-size: 2vw;
     }
+    #main-container{
+        margin-right: 2.5vmax;
+        margin-left: 2.5vmax;
+        margin-top: 25vmax;
+        background-color: rgb(2, 0, 8);
+        border-radius: 5vmax;
+        position: relative;
+        z-index: 2; /* Asegúrate de que esté encima de otros elementos */
+        opacity: 0;
+        transition: opacity 1.2s ease-in-out;
+    }
 }
 @media (max-width: 700px) {
+    #main-container{
+        margin-right: 1.8vmax;
+        margin-left: 1.8vmax;
+        margin-top: 25vmax;
+        background-color: rgb(2, 0, 8);
+        border-radius: 5vmax;
+        position: relative;
+        z-index: 2; /* Asegúrate de que esté encima de otros elementos */
+        opacity: 0;
+        transition: opacity 1.2s ease-in-out;
+    }
     #text-container {
         font-size: 14px;                 
         line-height: 1;
