@@ -120,12 +120,17 @@ body{
         opacity: 0;
         transition: opacity 1.2s ease-in-out;
     }
+    #text-container {
+        font-size: 14px;                 
+        line-height: 1;
+        top: 15%;
+    }
 }
 @media (max-width: 700px) {
     #main-container{
         margin-right: 1.8vmax;
         margin-left: 1.8vmax;
-        margin-top: 25vmax;
+        margin-top: 22vmax;
         background-color: rgb(2, 0, 8);
         border-radius: 5vmax;
         position: relative;
@@ -136,6 +141,7 @@ body{
     #text-container {
         font-size: 14px;                 
         line-height: 1;
+        top: 10%;
     }
     #nav-bar ul {
         flex-direction: row; /* Pone los enlaces en columna en pantallas pequeñas */
@@ -171,16 +177,49 @@ body{
         margin-left: 1vmax;
         margin-right: 1vmax;
     }
+    #main-container{
+        margin-right: 1.8vmax;
+        margin-left: 1.8vmax;
+        margin-top: 15vmax;
+        background-color: rgb(2, 0, 8);
+        border-radius: 5vmax;
+        position: relative;
+        z-index: 2; /* Asegúrate de que esté encima de otros elementos */
+        opacity: 0;
+        transition: opacity 1.2s ease-in-out;
+    }
 }
 @media (max-width: 600px) {
     #text-container {
         font-size: 11px; 
         line-height: 1.1;
     }
+    #main-container{
+        margin-right: 1.8vmax;
+        margin-left: 1.8vmax;
+        margin-top: 12vmax;
+        background-color: rgb(2, 0, 8);
+        border-radius: 5vmax;
+        position: relative;
+        z-index: 2; /* Asegúrate de que esté encima de otros elementos */
+        opacity: 0;
+        transition: opacity 1.2s ease-in-out;
+    }
 }
 @media (max-width: 350px) {
     #text-container {
         font-size: 8px;                 
         line-height: 1.2;
+    }
+    #main-container{
+        margin-right: 1.8vmax;
+        margin-left: 1.8vmax;
+        margin-top: 10vmax;
+        background-color: rgb(2, 0, 8);
+        border-radius: 5vmax;
+        position: relative;
+        z-index: 2; /* Asegúrate de que esté encima de otros elementos */
+        opacity: 0;
+        transition: opacity 1.2s ease-in-out;
     }
 }
