@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'font';
+    src: url('/JetBrainsMonoR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permitir el scroll */
+    background-color: black;
+    color: rgb(245, 174, 174);
+    font-family:  'font';
+    white-space: pre;
+    position: relative;
+}
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    white-space: pre;
+    color: rgba(88, 73, 109, 0.61);
+    font-size: 1.2rem;
+    z-index: 0;
+    font-family: monospace;
+    transition: color 3s ease;
+    line-height: 0.9;
+}
+#text-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(88, 73, 109, 0.61);
+    font-family:  'font';
+    white-space: pre;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.151);
+    z-index: 1;
+    transition: color 2s ease;
+    line-height: 1.1;
+    font-size: 1.5vw; /* Tamaño de fuente adaptativo */
+}
+#main-container{
+    margin-right: 7vmax;
+    margin-left: 7vmax;
+    margin-top: 20vmax;
+    background-color: rgb(2, 0, 8);
+    border-radius: 5vmax;
+    position: relative;
+    z-index: 2; /* Asegúrate de que esté encima de otros elementos */
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+#main-container.show {
+    opacity: 1;
+}
+#nav-bar {
+    margin-bottom: 5vmin;
+    margin-left: 2vmax;
+    margin-right: 2vmax;
+}
+#nav-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content:space-around;
+
+}
+#nav-bar li {
+    margin: 1vmin 2vmin;
+}
+#nav-bar a {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(33, 33, 33, 0); /* Color de fondo de los botones */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 1.2vw;
+}
+#nav-bar a:hover {
+    background-color: rgb(77, 77, 77); /* Color de fondo al pasar el cursor */
+}
+@media (max-width: 1200px) {
+    #nav-bar a {
+        
+        font-size: 1.8vw;
+    }
+}
+@media (max-width: 1000px) {
+    #nav-bar a {
+        
+        font-size: 2vw;
+    }
+}
+@media (max-width: 700px) {
+    #text-container {
+        font-size: 14px;                 
+        line-height: 1;
+    }
+    #nav-bar ul {
+        flex-direction: row; /* Pone los enlaces en columna en pantallas pequeñas */
+        align-items: center;
+        font-size: 10px; 
+    }
+    #nav-bar a {
+        text-decoration: none;
+        color: white;
+        background-color: rgba(33, 33, 33, 0); /* Color de fondo de los botones */
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        font-size: 2vw;
+    }
+
+    #nav-bar li {
+        margin: 1vmin 0; /* Menos espacio entre los elementos en pantallas pequeñas */
+    }
+}
+@media (max-width: 440px) {
+    #nav-bar a {
+        text-decoration: none;
+        color: white;
+        background-color: rgba(33, 33, 33, 0); /* Color de fondo de los botones */
+        padding: 5px 6px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        font-size: 2vw;
+    }
+    #nav-bar {
+        margin-bottom: 5vmin;
+        margin-left: 1vmax;
+        margin-right: 1vmax;
+    }
+}
+@media (max-width: 600px) {
+    #text-container {
+        font-size: 11px; 
+        line-height: 1.1;
+    }
+}
+@media (max-width: 350px) {
+    #text-container {
+        font-size: 8px;                 
+        line-height: 1.2;
+    }
+}
