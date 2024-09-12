@@ -143,7 +143,7 @@ body{
     position: relative; /* Necesario para aplicar transformaciones */
     transform: translateX(100%); /* Mueve el elemento fuera de la pantalla a la derecha */
     opacity: 0; /* Inicialmente oculto */
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Animación suave */
+    transition: transform 0.7s ease-out, opacity 0.7s ease-out; /* Animación suave */
 }
 
 /* Clase que aplica la animación para hacer visible el elemento */
@@ -198,7 +198,7 @@ body{
     background-image: linear-gradient(315deg, #f5aeae, #f8d0d0);
     border: none;
     border-radius: 7px;
-    box-shadow: 9px 7px 32px -11px rgba(20, 233, 86, .74);
+    box-shadow: 9px 7px 32px -11px #f5aeae;
     font-family: 'font';
     font-size: 1.1rem;
     font-weight: 900;
@@ -222,6 +222,10 @@ body{
 .button-wrap a.clicked::after {
     animation: none; /* Detiene la animación aplicada durante el hover */
     display: none; /* Elimina el efecto visual aplicado durante el hover */
+}
+.button-wrap a:focus, .button-wrap a:active {
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+    box-shadow: none; /* Elimina cualquier sombra añadida en el estado activo o de enfoque */
 }
 .button-wrap a::before {
     content: '';

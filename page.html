@@ -213,18 +213,66 @@
         updateBackground();
         startAnimation();
         
-        // Añadir funcionalidad para el enlace
-document.getElementById('show-section').addEventListener('click', function(event) {
+        document.getElementById('show-section').addEventListener('click', function(event) {
     event.preventDefault(); // Previene el comportamiento predeterminado del enlace
 
     const section = document.getElementById('section-to-show');
+    const sectionTop = section.getBoundingClientRect().top + window.pageYOffset; // Obtener la posición de la sección
 
-    // Hacer scroll hasta la sección
-    section.scrollIntoView({ behavior: 'smooth' });
-
-    // Añadir la clase para activar la animación de deslizamiento
-    section.classList.add('visible');
+    // Función para realizar el desplazamiento suave
+    smoothScrollTo(sectionTop, 600, function() {
+        // Añadir la clase para activar la animación de deslizamiento
+        section.classList.add('visible');
+    });
 });
+
+// Función de desplazamiento suave personalizada
+function smoothScrollTo(target, duration, callback) {
+    const start = window.pageYOffset;
+    const distance = target - start;
+    let startTime = null;
+
+    function scrollAnimation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = easeInOutQuad(timeElapsed, start, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) {
+            requestAnimationFrame(scrollAnimation);
+        } else {
+            if (callback) callback(); // Ejecutar callback cuando el scroll finaliza
+        }
+    }
+
+    requestAnimationFrame(scrollAnimation);
+}
+
+// Función de suavizado (ease-in-out) para el desplazamiento
+function easeInOutQuad(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+        const button = document.querySelector('.button-wrap a');
+
+        button.addEventListener('click', function(event) {
+            event.preventDefault();  // Previene la acción predeterminada de seguir el enlace
+
+            // Añadir la clase 'clicked' para mostrar el estado de clic temporalmente
+            button.classList.add('clicked');
+
+            // Remover la clase 'clicked' y el estado activo manualmente después del clic
+            setTimeout(function() {
+                button.classList.remove('clicked'); // Eliminar estado visual
+                button.blur(); // Forzar la pérdida del enfoque
+                window.open(button.getAttribute('href'), '_blank');
+            }, 150); // Ajusta el tiempo para que coincida con la duración de la animación
+        });
+    });
     </script>
 </body>
+
 </html>
